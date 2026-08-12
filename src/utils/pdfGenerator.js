@@ -23,9 +23,7 @@ export const generateQuotePDF = ({
 }) => {
   const doc = new jsPDF();
 
-  // =========================
   // FORMATAGE DES MONTANTS
-  // =========================
 
   const formatAmount = (amount) => {
     const formattedAmount = Number(amount).toLocaleString("fr-FR");
@@ -41,9 +39,7 @@ export const generateQuotePDF = ({
     return `${formattedAmount} €`;
   };
 
-  // =========================
   // TITRE
-  // =========================
 
   doc.setFontSize(20);
   doc.setFont("helvetica", "bold");
@@ -53,9 +49,7 @@ export const generateQuotePDF = ({
   doc.setFont("helvetica", "normal");
   doc.text("Devis — Campagne marketing", 20, 30);
 
-  // =========================
   // INFORMATIONS CAMPAGNE
-  // =========================
 
   doc.setFontSize(11);
 
@@ -77,9 +71,8 @@ export const generateQuotePDF = ({
     59
   );
 
-  // =========================
+  
   // SERVICES
-  // =========================
 
   const serviceRows = selectedServices.map((service) => [
     service.name,
@@ -99,9 +92,7 @@ export const generateQuotePDF = ({
     },
   });
 
-  // =========================
   // BUDGET TOTAL
-  // =========================
 
   const finalY = doc.lastAutoTable.finalY + 15;
 
@@ -131,9 +122,7 @@ export const generateQuotePDF = ({
     finalY + 18
   );
 
-  // =========================
   // PIED DE PAGE
-  // =========================
 
   const pageHeight = doc.internal.pageSize.height;
 
@@ -145,9 +134,7 @@ export const generateQuotePDF = ({
     pageHeight - 10
   );
 
-  // =========================
   // TÉLÉCHARGEMENT
-  // =========================
 
   doc.save("devis-s-budget.pdf");
 };

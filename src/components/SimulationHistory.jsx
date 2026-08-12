@@ -4,9 +4,8 @@ import React from "react";
 import { services } from "../data/pricing";
 
 const SimulationHistory = ({ history, onDelete, onRestore }) => {
-  // ---------------------------------------------------------
+  
   // État vide
-  // ---------------------------------------------------------
   if (!history || history.length === 0) {
     return (
       <section className="simulation-history">
@@ -41,9 +40,7 @@ const SimulationHistory = ({ history, onDelete, onRestore }) => {
     );
   }
 
-  // ---------------------------------------------------------
   // Liste des simulations
-  // ---------------------------------------------------------
   return (
     <section className="simulation-history">
       <div className="section-header">
